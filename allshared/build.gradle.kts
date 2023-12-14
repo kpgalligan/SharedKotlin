@@ -1,7 +1,6 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("multiplatform")
-    id("co.touchlab.kmmbridge")
     id("co.touchlab.skie")
     `maven-publish`
 }
@@ -29,11 +28,4 @@ kotlin {
             }
         }
     }
-}
-
-addGithubPackagesRepository()
-
-kmmbridge {
-    mavenPublishArtifacts()
-    spm()
 }
