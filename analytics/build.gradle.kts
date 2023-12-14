@@ -36,5 +36,3 @@ android {
     }
     namespace = "co.touchlab.kmmbridgekickstart.analytics"
 }
-
-addGithubPackagesRepository()
