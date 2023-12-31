@@ -50,7 +50,7 @@ internal class DatabaseHelper(
     }
 
     suspend fun updateFavorite(breedId: Long, favorite: Boolean) {
-        println("updateFavorite again")
+        println("updateFavorite again kpg/update_favorite")
         breedAnalytics.favoriteSaved(id = breedId, favorite = favorite)
         dbRef.transactionWithContext(backgroundDispatcher) {
             dbRef.tableQueries.updateFavorite(favorite, breedId)
