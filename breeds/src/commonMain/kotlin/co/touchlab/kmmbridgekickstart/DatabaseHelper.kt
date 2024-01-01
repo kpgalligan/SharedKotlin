@@ -1,5 +1,6 @@
 package co.touchlab.kmmbridgekickstart
 
+import app.cash.sqldelight.EnumColumnAdapter
 import app.cash.sqldelight.coroutines.asFlow
 import co.touchlab.kmmbridgekickstart.db.Breed
 import co.touchlab.kmmbridgekickstart.db.KMMBridgeKickStartDb
@@ -7,6 +8,7 @@ import co.touchlab.kmmbridgekickstart.sqldelight.transactionWithContext
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList
+import co.touchlab.kmmbridgekickstart.db.Media
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +19,7 @@ internal class DatabaseHelper(
     private val breedAnalytics: BreedAnalytics,
     private val backgroundDispatcher: CoroutineDispatcher
 ) {
-    private val dbRef: KMMBridgeKickStartDb = KMMBridgeKickStartDb(sqlDriver)
+    private val dbRef: KMMBridgeKickStartDb = KMMBridgeKickStartDb(sqlDriver, Media.Adapter(EnumColumnAdapter()))
 
     fun selectAllItems(): Flow<List<Breed>> =
         dbRef.tableQueries

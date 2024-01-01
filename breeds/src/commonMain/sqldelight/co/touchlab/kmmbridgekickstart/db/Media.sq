@@ -1,0 +1,23 @@
+import co.touchlab.kmmbridgekickstart.media.Source;
+
+CREATE TABLE Media (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL UNIQUE,
+source TEXT AS Source NOT NULL
+);
+
+selectAll:
+SELECT * FROM Media;
+
+selectById:
+SELECT * FROM Media WHERE id = ?;
+
+selectByName:
+SELECT * FROM Media WHERE name = ?;
+
+insertMedia:
+INSERT OR IGNORE INTO Media(name, source)
+VALUES (?,?);
+
+deleteAll:
+DELETE FROM Media;
